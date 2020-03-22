@@ -1,0 +1,20 @@
+{
+    "name": "via-sanity-test",
+    "description": "stripped down VIA clone to test sanity & nextjs",
+    "private": true,
+    "version": "1.0.0",
+    "license": "MIT",
+    "workspaces": [
+        "studio",
+        "frontend"
+    ],
+    "scripts": {
+        "dev": "lerna run dev --parallel",
+        "start": "lerna run start --parallel",
+        "build": "lerna run build --stream",
+        "sanity-deploy": "yarn workspace studio run deploy"
+    },
+    "devDependencies": {
+        "lerna": "^3.20.2"
+    }
+}
