@@ -12,6 +12,7 @@
         "dev": "lerna run dev --parallel",
         "start": "lerna run start --parallel",
         "build": "lerna run build --stream",
+        "format": "lerna run format",
         "sanity-deploy": "yarn workspace studio run deploy"
     },
     "devDependencies": {

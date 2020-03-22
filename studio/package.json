@@ -11,6 +11,7 @@
         "start": "sanity start",
         "build": "sanity build",
         "deploy": "sanity deploy",
+        "format": "prettier --write \"**/*.js\" \"!node_modules/**\"",
         "test": "sanity check"
     },
     "keywords": [
@@ -28,5 +29,7 @@
         "react": "^16.2",
         "react-dom": "^16.2"
     },
-    "devDependencies": {}
+    "devDependencies": {
+        "prettier": "2.0.1"
+    }
 }
