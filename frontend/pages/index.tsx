@@ -2,6 +2,8 @@ import Head from 'next/head';
 import { NextPage, GetStaticProps } from 'next';
 import sanity from '../lib/sanity';
 
+import { css, cx } from 'emotion'
+
 import Layout from '../components/layout';
 
 interface Author {
@@ -35,11 +37,31 @@ const query = `*[_type == "post"] {
 
 const Home: NextPage<HomeProps> = ({ posts }) => (
     <Layout>
-        <h1>Hello World</h1>
+        <div className={css`
+            width: 100%;
+            padding: 20px 2%;
+            background: #34495e;
+            margin: 0px;
+            border-top: solid 10px #2c3e50;
+            color: #fff;
+        `}>
+            <h1 className={css`
+                margin: 0px;
+                padding: 0px;
+            `}>Sanity.io / Next.js Demo</h1>
+        </div>
         {/* {console.log(posts)} */}
-        <div className='posts'>
+        <div className={css`
+            margin: 40px;
+        `}>
             {posts.map(post => (
-                <div className='post' key={post._id}>
+                <div className={css`
+                    margin-bottom: 40px;
+                    padding: 10px 20px;
+                    background: #fff;
+                    border-radius: 5px;
+                    border-bottom: solid 5px #dadada;
+                `} key={post._id}>
                     <h1>{post.title}</h1>
                     <p>{post.author.name}</p>
                 </div>
