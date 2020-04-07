@@ -13,7 +13,8 @@
         "start": "lerna run start --parallel",
         "build": "lerna run build --stream",
         "format": "lerna run format",
-        "sanity-deploy": "yarn workspace studio run deploy"
+        "sanity-deploy": "yarn workspace studio run deploy",
+        "now-deploy": "yarn && lerna run build --stream"
     },
     "devDependencies": {
         "lerna": "^3.20.2"

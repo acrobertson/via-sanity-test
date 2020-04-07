@@ -30,6 +30,7 @@
         "react-dom": "^16.2"
     },
     "devDependencies": {
+        "@sanity/cli": "^1.149.9",
         "prettier": "2.0.1"
     }
 }
