@@ -9,11 +9,12 @@
         "frontend"
     ],
     "scripts": {
-        "dev": "yarn && lerna run dev --parallel",
+        "dev": "lerna run dev --parallel",
         "start": "lerna run start --parallel",
-        "build": "yarn && lerna run build --stream",
+        "build": "lerna run build --stream",
         "format": "lerna run format",
-        "sanity-deploy": "yarn workspace studio run deploy"
+        "sanity-deploy": "yarn workspace studio run deploy",
+        "now-deploy": "yarn && lerna run build --stream"
     },
     "devDependencies": {
         "lerna": "^3.20.2"
