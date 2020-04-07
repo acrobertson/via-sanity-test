@@ -1,16 +1,38 @@
 import Head from 'next/head';
-import { Global, css } from '@emotion/core'
+import { Global, css } from '@emotion/core';
+import styled from '@emotion/styled';
 
 type LayoutProps = {
+    readonly title: string;
     readonly children: React.ReactNode;
 };
 
-const Layout = ({ children }: LayoutProps) => (
+const Header = styled.div`
+    width: 100%;
+    padding: 20px 2%;
+    background: #34495e;
+    margin: 0px;
+    border-top: solid 10px #2c3e50;
+    color: #fff;
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+`;
+
+const Main = styled.main`
+    margin: 40px;
+`;
+
+const Layout = ({ title, children }: LayoutProps) => (
     <>
         <Head>
-            <title>Create Next App</title>
+            <title>{title}</title>
             <link rel='icon' href='/favicon.ico' />
-            <link href='https://fonts.googleapis.com/css2?family=Roboto' rel='stylesheet' />
+            <link
+                href='https://fonts.googleapis.com/css2?family=Roboto'
+                rel='stylesheet'
+            />
         </Head>
         <Global
             styles={css`
@@ -29,7 +51,10 @@ const Layout = ({ children }: LayoutProps) => (
                 }
             `}
         />
-        <main>{children}</main>
+        <Header>
+            <h1>Sanity.io / Next.js Demo</h1>
+        </Header>
+        <Main>{children}</Main>
     </>
 );
 
