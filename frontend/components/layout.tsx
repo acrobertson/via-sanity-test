@@ -9,7 +9,7 @@ type LayoutProps = {
 
 const Header = styled.div`
     width: 100%;
-    padding: 20px 2%;
+    padding: 1.5em 4em;
     background: #34495e;
     margin: 0px;
     border-top: solid 10px #2c3e50;
@@ -21,7 +21,9 @@ const Header = styled.div`
 `;
 
 const Main = styled.main`
-    margin: 40px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2em 0;
 `;
 
 const Layout = ({ title, children }: LayoutProps) => (
