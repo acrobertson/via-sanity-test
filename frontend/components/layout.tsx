@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
+import Link from 'next/link';
 
 type LayoutProps = {
     readonly title: string;
@@ -17,6 +18,13 @@ const Header = styled.div`
     h1 {
         margin: 0;
         padding: 0;
+    }
+`;
+
+const HomeLink = styled.a`
+    color: white;
+    &:visited {
+        color: white;
     }
 `;
 
@@ -54,7 +62,11 @@ const Layout = ({ title, children }: LayoutProps) => (
             `}
         />
         <Header>
-            <h1>Sanity.io / Next.js Demo</h1>
+            <Link href='/' passHref>
+                <HomeLink>
+                    <h1>Sanity.io / Next.js Demo</h1>
+                </HomeLink>
+            </Link>
         </Header>
         <Main>{children}</Main>
     </>
