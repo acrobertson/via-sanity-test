@@ -2,6 +2,7 @@ import { NextPage, GetStaticProps } from 'next';
 import Link from 'next/link';
 import sanity from '../lib/sanity';
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 
 import Layout from '../components/layout';
 import imageUrlFor from '../utils/imageUrlFor';
@@ -34,7 +35,7 @@ type HomeProps = {
 };
 
 // styled components
-const Post = styled.article`
+const Post = styled(motion.article)`
     width: min-content;
     padding: 2em;
     background: #fff;
@@ -73,7 +74,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => (
     <Layout title='Sanity/Next Demo'>
         <Stack>
             {posts.map((post) => (
-                <Post key={post._id}>
+                <Post key={post._id} whileHover={{ scale: 1.025 }}>
                     <img
                         src={imageUrlFor(post.mainImage).width(800).url() ?? ''}
                         width={800}
