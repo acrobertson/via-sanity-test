@@ -65,22 +65,19 @@ const singlePostQuery = `*[_type == "post" && _id == $id] {
 }[0]
 `;
 
-const Post = ({ post }: PostProps) => {
-    console.log(post);
-    return (
-        <Layout title={`Post | ${post.title}`}>
-            <Article>
-                <img src={imageUrlFor(post.mainImage).width(800).url() ?? ''} />
-                <ArticleText>
-                    <ArticleHeading>{post.title}</ArticleHeading>
-                    <Subtitle>By {post.author.name}</Subtitle>
-                    <Subtitle>Published {post.publishedAt}</Subtitle>
-                    <BlockContent blocks={post.body} />,
-                </ArticleText>
-            </Article>
-        </Layout>
-    );
-};
+const Post = ({ post }: PostProps) => (
+    <Layout title={`Post | ${post.title}`}>
+        <Article>
+            <img src={imageUrlFor(post.mainImage).width(800).url() ?? ''} />
+            <ArticleText>
+                <ArticleHeading>{post.title}</ArticleHeading>
+                <Subtitle>By {post.author.name}</Subtitle>
+                <Subtitle>Published {post.publishedAt}</Subtitle>
+                <BlockContent blocks={post.body} />,
+            </ArticleText>
+        </Article>
+    </Layout>
+);
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const posts: Post[] = await sanity.fetch(postsQuery);

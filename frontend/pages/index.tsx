@@ -71,7 +71,6 @@ const query = `*[_type == "post"] {
 
 const Home: NextPage<HomeProps> = ({ posts }) => (
     <Layout title='Sanity/Next Demo'>
-        {console.log(posts)}
         <Stack>
             {posts.map((post) => (
                 <Post key={post._id}>
