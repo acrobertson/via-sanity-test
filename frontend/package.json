@@ -10,6 +10,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/client": "^1.149.2",
     "@sanity/image-url": "^0.140.18",
     "next": "9.3.4",

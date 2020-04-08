@@ -1,4 +1,5 @@
 import { NextPage, GetStaticProps } from 'next';
+import Link from 'next/link';
 import sanity from '../lib/sanity';
 import styled from '@emotion/styled';
 
@@ -20,7 +21,7 @@ interface Author {
 }
 
 interface Post {
-    _id: number;
+    _id: string;
     author: Author;
     title: string;
     summary: string;
@@ -41,8 +42,10 @@ const Post = styled.article`
     border-bottom: solid 5px #dadada;
 `;
 
-const Title = styled.h1`
-    margin: 1em 0 0;
+const Title = styled.a`
+    & > h1 {
+        margin: 1em 0 0;
+    }
 `;
 
 const Author = styled.p`
@@ -58,6 +61,7 @@ const Summary = styled.p`
 const query = `*[_type == "post"] {
   _id,
   title,
+  slug,
   summary,
   mainImage,
   "imageAspect": mainImage.asset->.metadata.dimensions.aspectRatio,
@@ -76,7 +80,11 @@ const Home: NextPage<HomeProps> = ({ posts }) => (
                         width={800}
                         height={800 / post.imageAspect}
                     />
-                    <Title>{post.title}</Title>
+                    <Link href='/post/[id]' as={`/post/${post._id}`} passHref>
+                        <Title>
+                            <h1>{post.title}</h1>
+                        </Title>
+                    </Link>
                     <Author>by {post.author.name}</Author>
                     <Summary>{post.summary}</Summary>
                 </Post>
